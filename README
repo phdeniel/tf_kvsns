@@ -1,0 +1,41 @@
+Building TensorFlow:
+===================
+This uses the dependencies built using EasyBuild.
+Check https://gitlab.version.fz-juelich.de/nassyr1/juawei-easyconfigs for more info 
+Or contact: Salem El sayed <s.elsayed@fz-juelich.de>
+            Stepan Nassyr <s.nassyr@fz-juelich.de>
+
+
+Instructions:
+------------------
+- Set the correct $mod_path in environment.sh
+  ex. for visnode-0X:
+  mod_path=/scratch
+
+- Source environment.sh:
+    $ source environment.sh
+  This loads all modules and sets all required environment variables
+
+- Extract the tensorflow tar directory
+    $ tar -xvf v1.15.2.tar.gz
+  (source https://github.com/tensorflow/tensorflow/archive/v1.15.2.tar.gz)
+
+- Apply the swig patch TensorFlow-1.15.2_swig-env.patch.
+  This can also be done manually by editing tensorflow-1.15.2/tensorflow/tensorflow.bzl
+    
+- Configure tensorflow
+    $ cd tensorflow-1.15.2/
+    $ ./configure
+ 
+- Set the build path in build_line.sh
+    ex. 
+    build_path=/path/to/my/tensorflow/BUILD
+
+- Run the build script from within the tensorflow direcotry
+    $ cd tensorflow-1.15.2/
+    $ ../build_line.sh
+
+- while ( Not building correctly ) 
+    Assess life's worthiness
+    DEAL WITH ERRORS!!!!
+

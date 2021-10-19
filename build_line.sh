@@ -1,0 +1,2 @@
+build_path=/scratch/deniel1/BUILD
+bazel --output_base=$build_path/bazel-build --install_base=$build_path/inst_base --output_user_root=$build_path/user_root build --jobs 4 --copt='-g' --cxxopt='-g' --compilation_mode=opt --config=opt --subcommands --verbose_failures --jobs=20 --action_env=PYTHONPATH --distinct_host_configuration=false  --config=cuda //tensorflow/tools/pip_package:build_pip_package 
